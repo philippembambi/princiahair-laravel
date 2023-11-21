@@ -1,5 +1,5 @@
     <!-- footer section start -->
-    <footer class="dark-footer footer-style-1 footer-theme-color">
+    <footer class="dark-footer footer-style-1">
         <section class="section-b-space darken-layout">
             <div class="container">
                 <div class="row footer-theme partition-f">
@@ -8,14 +8,12 @@
                             <h4>about</h4>
                         </div>
                         <div class="footer-contant">
-                            <div class="footer-logo"><img src="../assets/images/icon/logo/f11.png" alt=""></div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore</p>
+                            <div class="footer-logo"><img style="height: 200px" src="{{asset('assets/img/logo.png')}}" alt=""></div>
                             <ul class="contact-list">
-                                <li><i class="fa fa-map-marker"></i>Multikart Demo Store, Demo store India 345-659
+                                <li><i class="fa fa-map-marker text-primary"></i>Multikart Demo Store, Demo store India 345-659
                                 </li>
-                                <li><i class="fa fa-phone"></i>Call Us: 123-456-7898</li>
-                                <li><i class="fa fa-envelope"></i>Email Us: <a href="#">Support@Multikart.com</a></li>
+                                <li><i class="fa fa-phone text-primary"></i>Call Us: 123-456-7898</li>
+                                <li><i class="fa fa-envelope text-primary"></i>Email Us: <a href="#">Support@Multikart.com</a></li>
                             </ul>
                         </div>
                     </div>
@@ -83,13 +81,12 @@
                 </div>
             </div>
         </section>
-        <div class="sub-footer dark-subfooter">
+        <div class="sub-footer" style="background-color: rgb(20, 14, 14)">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-6 col-md-6 col-sm-12">
                         <div class="footer-end">
-                            <p><i class="fa fa-copyright" aria-hidden="true"></i> 2023-24 themeforest powered by
-                                pixelstrap</p>
+                            <p><i class="fa fa-copyright" aria-hidden="true"></i> 2023 PrinciaHair</p>
                         </div>
                     </div>
                     <div class="col-xl-6 col-md-6 col-sm-12">

@@ -1,6 +1,6 @@
                 <!-- Parallax banner -->
                 <section class="p-0 product-vertical overflow-hidden">
-                    <div class="full-banner parallax text-center p-left bg-theme">
+                    <div class="full-banner parallax text-center p-left bg-secondary">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-6 m-auto">
@@ -22,14 +22,14 @@
                                                 <div class="sec-1">
                                                     <div class="product-box2">
                                                         <div class="media">
-                                                            <a href="./details.html"><img
+                                                            <a href="{{url('product')}}"><img
                                                                     class="img-fluid blur-up lazyload"
                                                                     src="./assets/images/_products/3.webp" alt=""></a>
                                                             <div class="media-body align-self-center">
                                                                 <div class="rating"><i class="fa fa-star"></i> <i
                                                                         class="fa fa-star"></i> <i class="fa fa-star"></i> <i
                                                                         class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                                                                <a href="./details.html">
+                                                                <a href="{{url('product')}}">
                                                                     <h6>Men's Analog Rounded Watch</h6>
                                                                 </a>
                                                                 <h4>$110.20 <del>$200.00</del></h4>
@@ -49,14 +49,14 @@
                                                 <div class="sec-1">
                                                     <div class="product-box2">
                                                         <div class="media">
-                                                            <a href="./details.html"><img
+                                                            <a href="{{url('product')}}"><img
                                                                     class="img-fluid blur-up lazyload"
                                                                     src="./assets/images/_products/8.jpg" alt=""></a>
                                                             <div class="media-body align-self-center">
                                                                 <div class="rating"><i class="fa fa-star"></i> <i
                                                                         class="fa fa-star"></i> <i class="fa fa-star"></i> <i
                                                                         class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                                                                <a href="./details.html">
+                                                                <a href="{{url('product')}}">
                                                                     <h6>Men's Analog Steel Strap Rounded Watch</h6>
                                                                 </a>
                                                                 <h4>$120.20 <del>$180.90</del></h4>
@@ -76,14 +76,14 @@
                                                 <div class="sec-1">
                                                     <div class="product-box2">
                                                         <div class="media">
-                                                            <a href="./details.html"><img
+                                                            <a href="{{url('product')}}"><img
                                                                     class="img-fluid blur-up lazyload"
                                                                     src="./assets/images/_products/5.webp" alt=""></a>
                                                             <div class="media-body align-self-center">
                                                                 <div class="rating"><i class="fa fa-star"></i> <i
                                                                         class="fa fa-star"></i> <i class="fa fa-star"></i> <i
                                                                         class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                                                                <a href="./details.html">
+                                                                <a href="{{url('product')}}">
                                                                     <h6>Men's Analog Rounded Watch</h6>
                                                                 </a>
                                                                 <h4>$110.20 <del>$200.00</del></h4>

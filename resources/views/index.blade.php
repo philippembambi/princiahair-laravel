@@ -28,7 +28,7 @@
                 </div>
             </div>
         </div>
-        <div>
+        <div class="header-slider2">
             <div class="home">
                 <img src="./assets/images/_products/slider2.jpeg" alt="" class="bg-img blur-up lazyload">
                 <div class="container">
@@ -57,8 +57,8 @@
 <section class="pt-0 ratio3_2">
     <div class="container-fluid p-0">
         <div class="row m-0">
-            <div class="col-lg-3 col-sm-6 p-0">
-                <a href="./details.html">
+            <div class="col-lg-3 col-sm-6 p-0 collection_banner">
+                <a href="{{url('product')}}">
                     <div class="collection-banner p-left">
                         <div class="img-part">
                             <img src="./assets/images/_products/3.webp"
@@ -73,8 +73,8 @@
                     </div>
                 </a>
             </div>
-            <div class="col-lg-3 col-sm-6 p-0">
-                <a href="./details.html">
+            <div class="col-lg-3 col-sm-6 p-0 collection_banner">
+                <a href="{{url('product')}}">
                     <div class="collection-banner p-left">
                         <div class="img-part">
                             <img src="./assets/images/_products/11.jpg"
@@ -89,8 +89,8 @@
                     </div>
                 </a>
             </div>
-            <div class="col-lg-3 col-sm-6 p-0">
-                <a href="./details.html">
+            <div class="col-lg-3 col-sm-6 p-0 collection_banner">
+                <a href="{{url('product')}}">
                     <div class="collection-banner p-left">
                         <div class="img-part">
                             <img src="./assets/images/_products/9.jpeg"
@@ -106,7 +106,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-sm-6 p-0">
-                <a href="./details.html">
+                <a href="{{url('product')}}">
                     <div class="collection-banner p-left">
                         <div class="img-part">
                             <img src="./assets/images/_products/5.webp"
@@ -241,7 +241,7 @@
                                 <div class="banner-contain">
                                     <h2>2023</h2>
                                     <h3>fashion trends</h3>
-                                    <h4>special offer</h4>
+                                    <h4>Offre Spéciale</h4>
                                 </div>
                             </div>
                         </div>

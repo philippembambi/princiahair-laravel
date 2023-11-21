@@ -1,0 +1,55 @@
+.bg-secondary {
+    background-color: #393230 !important;
+}
+.bg-primary {
+    background-color: #e09011 !important;
+    color: white !important;
+}
+.text-primary {
+    color: #e09011 !important;
+}
+
+.logo-header {
+    height: 150px;
+    margin-top: -1.5rem;
+}
+.princia-subheader {
+    height: 100px !important;
+}
+.mobile-logo-header {
+    visibility: hidden;
+}
+@media (min-width: 992px) {
+    .princia-navbar {
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 992px) {
+    .logo-header {
+        visibility: hidden;
+    }
+    .mobile-logo-header {
+        visibility:visible;
+        height: 120px;
+        margin-top: -1.5rem;
+    }
+}
+
+@media (max-width: 776px) {
+    .collection_banner {
+        display: none;
+    }
+    .header-slider2 {
+        visibility: hidden;
+        display: none;
+    }
+    .sm-horizontal {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+.bg-third {
+    background-color: rgb(11, 10, 10)
+}

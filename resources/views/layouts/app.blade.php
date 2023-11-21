@@ -32,6 +32,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/bootstrap.css') }}">
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom.css') }}">
     
     <title>PrinciaHair - cosmétique</title>
 
@@ -81,7 +82,7 @@
             $(window).on('load', function () {
                 setTimeout(function () {
                     $('#exampleModal').modal('show');
-                }, 2500);
+                }, 9000);
             });
     
             function openSearch() {
