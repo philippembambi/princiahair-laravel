@@ -1,0 +1,201 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use DB;
+use Flashy;
+use Exception;
+use App\Mail\NotifyUserMail;
+use Illuminate\Support\Facades\Mail;
+
+class UserController extends Controller
+{
+    public function __invoke()
+    {
+        $towns_and_countries = DB::table('towns')
+        ->leftJoin('countries', 'towns.country_id', '=', 'countries.id')
+        ->orderBy('towns.country_id')
+        ->get();
+
+		return view('user.authentications', ['towns_and_countries' => $towns_and_countries]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $userTerminal = DB::table('terminals')
+                    ->leftJoin('users', 'terminals.id_user', '=', 'users.id')
+                    ->orderBy('users.updated_at', 'DESC')
+                    ->get(['terminals.id', 'fullname', 'phone_number',
+                          'email', 'mac_addres', 'ip_addres', 'user_agent', 'terminals.updated_at AS lastCon'
+                    ]);
+
+        return view("admin.user.users",[
+            'userTerminal' => $userTerminal
+        ]);
+    }
+
+    public function getUsers()
+    {
+        return view("admin.user.index");
+    }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\User  $item
+     */
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'username' => 'required',
+            'email' => 'email',
+            'psw' => 'required'
+        ]);
+
+        try {
+            User::create([
+                'fullname' => $request->username,
+                'phone_number' => $request->phonecode,
+                'email' => $request->email,
+                'password' => Hash::make($request->psw),
+                'town'=> $request->ville
+                ]);
+
+        } catch (\Exception $ex) {
+           if((\str_starts_with($ex,
+                                "PDOException: SQLSTATE[23000]: Integrity constraint violation"))
+                                && \str_contains($ex, "users_email_unique"))
+           {
+            Flashy::error("Cette adresse mail est déjà utilisée par un autre utilisateur");
+            return redirect()->back();
+           }
+           elseif((\str_starts_with($ex,
+                                "PDOException: SQLSTATE[23000]: Integrity constraint violation"))
+                                && \str_contains($ex, "users_phone_number_unique"))
+           {
+            Flashy::error("Ce numéro de téléphone est déjà utilisé par un autre utilisateur");
+            return redirect()->back();
+           }
+           else{
+               dd($ex);
+           }
+        }
+
+
+        if(auth()->attempt([
+            'password' => $request->psw,
+            'email' => $request->email,
+        ], $request->remember)){
+
+            /*
+                $subject = "Mcs Notification";
+                $body = "Merci de faire confiance à Mcs Group";
+                $email_data = [
+                    'recipient' => 'philippembambi413@gmail.com',
+                    'fromEmail' => $request->email,
+                    'fromName' => $request->username,
+                    'subject' => $subject,
+                    'body' => $body
+                ];
+                \Mail::send('email-template', $email_data, function($message) use ($email_data){
+                    $message->to($email_data['recipient'])
+                            ->from($email_data['fromEmail'], $email_data['fromName'])
+                            ->subject($email_data['$subject']);
+                });
+            */
+            return redirect()->route('send-signupMail');
+        }
+
+/*
+        		if (Auth::attempt($credentials, $request->remember)) {
+			$request->session()->regenerate();
+*/
+
+}
+
+    /**
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+    public function login(Request $request)
+	{
+		$credentials = $request->validate([
+			'phone_number' => 'required',
+			'password' => 'required',
+		]);
+
+		if (Auth::attempt($credentials, $request->remember)) {
+			$request->session()->regenerate();
+
+            Flashy::success('Vous êtes actuellement connecté');
+            return redirect()->route('home');
+		}
+        Flashy::error("Erreur de connexion !");
+		return back()->with('status', 'Numéro de téléphone ou Mot de passe incorrects');
+	}
+
+    public function logout() {
+
+        auth()->logout();
+
+        $towns_and_countries = DB::table('towns')
+        ->leftJoin('countries', 'towns.country_id', '=', 'countries.id')
+        ->orderBy('towns.country_id')
+        ->get();
+
+        Flashy::primary("Vous êtes actuellement déconnecté !");
+		return view('user.authentications', ['towns_and_countries' => $towns_and_countries]);
+//        return redirect()->route('login');
+    }
+
+    public function notify($id)
+    {
+        $userInfo = DB::table('users')
+        ->leftJoin('purchases', 'purchases.user_id', '=', 'users.id')
+        ->where('purchases.id', $id)
+        ->get();
+        return view('admin.user.notify', [
+            'userInfo' => $userInfo
+        ]);
+
+    }
+
+        /**
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function notified(Request $request)
+    {
+        $purchaseInfo = DB::table('purchases')
+        ->leftJoin('articles', 'purchases.article_id', '=', 'articles.id')
+        ->where('purchases.code_purchase', $request->code)
+        ->get();
+
+        $details = [
+            'title' => $request->title,
+            'description' => $request->description,
+            'article' => $purchaseInfo[0]->tag
+        ];
+
+        try {
+            Mail::to($request->email)->send(new NotifyUserMail($details));
+        } catch (Exception $ex) {
+            //throw $th;
+        }
+        return redirect()->route("management");
+    }
+
+}
