@@ -4,6 +4,8 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product;
+use Flashy;
 
 class ProductController extends Controller
 {
@@ -24,9 +26,18 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.index', [
+            'component' => "admin.components.product.add",
+            'categories' => null
+        ]);
     }
 
+    public function loadFile()
+    {
+        echo $_GET;
+        // $file = base64_decode(request('file'));
+        // echo $file;
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -35,7 +46,20 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Product::create([
+        'category' => $request->product_category,
+        'label'=> $request->product_label,
+        'available'=> 0,
+        'price'=> $request->product_price,
+        'desc'=> $request->product_desc,
+        'density'=> $request->product_density,
+        'length'=> $request->product_length,
+        'texture'=> $request->product_texture,
+        'usage_delay'=> $request->product_delay,
+        'color'=> $request->product_color,
+        'elastic_band'=> $request->product_band,
+        'a_image'=> $request->product_category,
+        ]);
     }
 
     /**

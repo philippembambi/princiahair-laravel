@@ -131,8 +131,10 @@
                         <div class="brand-logo">
                             
                         </div>
-                        <a href="{{url('index')}}"><img src="{{asset('assets/img/logo.png')}}" class="logo-header"
-                            class="img-fluid blur-up lazyload" alt=""></a>
+                        <a href="{{url('index')}}">
+                          <img  src="{{asset('assets/img/logo.png')}}" 
+                                class="logo-header img-fluid blur-up lazyload" 
+                                alt=""></a>
                     </div>
                     <div class="menu-right pull-right">
                         <div>

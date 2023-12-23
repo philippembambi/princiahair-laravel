@@ -3,8 +3,12 @@ var DropzoneExample = function () {
         Dropzone.options.singleFileUpload = {
             paramName: "file",
             maxFiles: 1,
-            maxFilesize: 5,
+            maxFilesize: 2,
             accept: function(file, done) {
+                console.log('====================================');
+                console.log("uploaded file : ", file, file.upload.filename, " / Input file : ", document.getElementById("product_img1").value);
+                console.log('====================================');
+                document.getElementById("product_img1").value = file.upload.filename;
                 if (file.name == "justinbieber.jpg") {
                     done("Naha, you don't.");
                 } else {

@@ -4,7 +4,7 @@
         <div class="main-header-right row">
             <div class="main-header-left d-lg-none w-auto">
                 <div class="logo-wrapper">
-                    <a href="index.html">
+                    <a href="{{ route("admin.home") }}">
                         <img class="blur-up lazyloaded d-block d-lg-none"
                             src="assets/images/dashboard/multikart-logo-black.png" alt="">
                     </a>
@@ -105,15 +105,12 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:void(0)">
-                            <i class="right_side_toggle" data-feather="message-square"></i>
-                            <span class="dot"></span>
-                        </a>
+                        {{auth()->user()->fullname}}
                     </li>
                     <li class="onhover-dropdown">
                         <div class="media align-items-center">
                             <img class="align-self-center pull-right img-50 blur-up lazyloaded"
-                                src="assets/images/dashboard/user3.jpg" alt="header-user">
+                                src="{{ asset('img/user.png') }}" alt="header-user">
                             <div class="dotted-animation">
                                 <span class="animate-circle"></span>
                                 <span class="main-circle"></span>
@@ -121,18 +118,13 @@
                         </div>
                         <ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
                             <li>
-                                <a href="javascript:void(0)">
-                                    <i data-feather="user"></i>Edit Profile
+                                <a href="#">
+                                    <i data-feather="user"></i>{{auth()->user()->fullname}}
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)">
-                                    <i data-feather="mail"></i>Inbox
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <i data-feather="lock"></i>Lock Screen
+                                <a href="#">
+                                    <i data-feather="mail"></i>{{auth()->user()->phone}}
                                 </a>
                             </li>
                             <li>
@@ -141,7 +133,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)">
+                                <a href="{{ route('logout') }}">
                                     <i data-feather="log-out"></i>Logout
                                 </a>
                             </li>
