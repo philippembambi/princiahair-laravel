@@ -105,7 +105,7 @@
                         </ul>
                     </li>
                     <li>
-                        {{auth()->user()->fullname}}
+                        {{auth()->user()->name}}
                     </li>
                     <li class="onhover-dropdown">
                         <div class="media align-items-center">
@@ -119,7 +119,7 @@
                         <ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
                             <li>
                                 <a href="#">
-                                    <i data-feather="user"></i>{{auth()->user()->fullname}}
+                                    <i data-feather="user"></i>{{auth()->user()->name}}
                                 </a>
                             </li>
                             <li>

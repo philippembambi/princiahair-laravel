@@ -57,7 +57,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="product-review.html">
+                                                <a href="{{ route('admin.product.all') }}">
                                                     <i class="fa fa-circle"></i>
                                                     <span>Liste des produits</span>
                                                 </a>

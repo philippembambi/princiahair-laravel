@@ -1,10 +1,14 @@
-@inject('category', App\Utilities\Category::class)
+@inject('products', App\Utils\ProductUtil::class)
+
+@push('styles')
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/css/vendors/datatables.css') }}">
+@endpush
 
 <div class="page-body-wrapper">
 
     @component('admin.components.sideBar')
     @endcomponent
-    
+
     <div class="page-body">
         <!-- Container-fluid starts-->
         <div class="container-fluid">
@@ -12,20 +16,19 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="page-header-left">
-                            <h3>Sub Category
-                                <small>Multikart Admin panel</small>
+                            <h3>Tous les produits
                             </h3>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <ol class="breadcrumb pull-right">
                             <li class="breadcrumb-item">
-                                <a href="index.html">
+                                <a href="{{route('admin.home')}}">
                                     <i data-feather="home"></i>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item">Physical</li>
-                            <li class="breadcrumb-item active">Sub Category</li>
+                            <li class="breadcrumb-item">Produits</li>
+                            <li class="breadcrumb-item active">Tous les produits</li>
                         </ol>
                     </div>
                 </div>
@@ -38,530 +41,73 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="card">
-                        <div class="card-header">
-                            <form class="form-inline search-form search-box">
-                                <div class="form-group">
-                                    <input class="form-control-plaintext" type="search" placeholder="Search..">
-                                </div>
-                            </form>
-
-                            <button type="button" class="btn btn-primary mt-md-0 mt-2" data-bs-toggle="modal"
-                                data-original-title="test" data-bs-target="#exampleModal">Add Sub
-                                Category</button>
-                        </div>
-
-                        <div class="card-body">
-                            <div class="table-responsive table-desi">
-                                <table class="table all-package table-category " id="editableTable">
-                                    <thead>
-                                        <tr>
-                                            <th>Image</th>
-                                            <th>Name</th>
-                                            <th>Price</th>
-                                            <th>Status</th>
-                                            <th>Category</th>
-                                            <th>Option</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <img src="assets/images/dashboard/product/1.jpg"
-                                                    data-field="image" alt="">
-                                            </td>
-
-                                            <td data-field="name">Headphones</td>
-
-                                            <td data-field="price">$20.00</td>
-
-                                            <td class="order-success" data-field="status">
-                                                <span>Success</span>
-                                            </td>
-
-                                            <td data-field="name">Electronics</td>
-
-                                            <td>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-edit" title="Edit"></i>
-                                                </a>
-
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-trash" title="Delete"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <img src="assets/images/dashboard/product/2.jpg" alt="">
-                                            </td>
-
-                                            <td data-field="name">Honor Mobile</td>
-
-                                            <td data-field="price">$462.00</td>
-
-                                            <td class="order-success" data-field="status">
-                                                <span>Success</span>
-                                            </td>
-
-                                            <td data-field="name">Electronics</td>
-
-                                            <td>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-edit" title="Edit"></i>
-                                                </a>
-
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-trash" title="Delete"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <img src="assets/images/dashboard/product/3.jpg" alt="">
-                                            </td>
-
-                                            <td data-field="name">Samsung LED TV</td>
-
-                                            <td data-field="price">$652.00</td>
-
-                                            <td class="order-warning" data-field="status">
-                                                <span>Padding</span>
-                                            </td>
-
-                                            <td data-field="name">Electronics</td>
-
-                                            <td>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-edit" title="Edit"></i>
-                                                </a>
-
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-trash" title="Delete"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <img src="assets/images/dashboard/product/4.jpg" alt="">
-                                            </td>
-
-                                            <td data-field="name">Motorola Bluetooth</td>
-
-                                            <td data-field="price">$25.00</td>
-
-                                            <td class="order-success" data-field="status">
-                                                <span>Success</span>
-                                            </td>
-
-                                            <td data-field="name">lectronics</td>
-
-                                            <td>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-edit" title="Edit"></i>
-                                                </a>
-
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-trash" title="Delete"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <img src="assets/images/dashboard/product/5.jpg" alt="">
-                                            </td>
-
-                                            <td data-field="name">Apple 6s</td>
-
-                                            <td data-field="price">$782.00</td>
-
-                                            <td class="order-cancle" data-field="status">
-                                                <span>Cancle</span>
-                                            </td>
-
-                                            <td data-field="name">Electronics</td>
-
-                                            <td>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-edit" title="Edit"></i>
-                                                </a>
-
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-trash" title="Delete"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <img src="assets/images/dashboard/product/6.jpg" alt="">
-                                            </td>
-
-                                            <td data-field="name">Printer</td>
-
-                                            <td data-field="price">$2461.00</td>
-
-                                            <td class="order-warning" data-field="status">
-                                                <span>Padding</span>
-                                            </td>
-
-                                            <td data-field="name">Electronics</td>
-
-                                            <td>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-edit" title="Edit"></i>
-                                                </a>
-
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-trash" title="Delete"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <img src="assets/images/dashboard/product/7.jpg" alt="">
-                                            </td>
-
-                                            <td data-field="name">High Quality Headphones</td>
-
-                                            <td data-field="price">$761.00</td>
-
-                                            <td class="order-success" data-field="status">
-                                                <span>Success</span>
-                                            </td>
-
-                                            <td data-field="name">Electronics</td>
-
-                                            <td>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-edit" title="Edit"></i>
-                                                </a>
-
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-trash" title="Delete"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <img src="assets/images/dashboard/product/8.jpg" alt="">
-                                            </td>
-
-                                            <td data-field="name">Home Theater Speakers</td>
-
-                                            <td data-field="price">$672.00</td>
-
-                                            <td class="order-cancle" data-field="status">
-                                                <span>Cancle</span>
-                                            </td>
-
-                                            <td data-field="name">Electronics</td>
-
-                                            <td>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-edit" title="Edit"></i>
-                                                </a>
-
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-trash" title="Delete"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <img src="assets/images/dashboard/product/9.jpg" alt="">
-                                            </td>
-
-                                            <td data-field="name">Diamond Ring</td>
-
-                                            <td data-field="price">$237.00</td>
-
-                                            <td class="order-success" data-field="status">
-                                                <span>Success</span>
-                                            </td>
-
-                                            <td data-field="name">Electronics</td>
-
-                                            <td>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-edit" title="Edit"></i>
-                                                </a>
-
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-trash" title="Delete"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <img src="assets/images/dashboard/product/11.jpg" alt="">
-                                            </td>
-
-                                            <td data-field="name">Diamond Nacklace</td>
-
-                                            <td data-field="price">$3579.00</td>
-
-                                            <td class="order-warning" data-field="status">
-                                                <span>Padding</span>
-                                            </td>
-
-                                            <td data-field="name">Electronics</td>
-
-                                            <td>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-edit" title="Edit"></i>
-                                                </a>
-
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-trash" title="Delete"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <img src="assets/images/dashboard/product/12.jpg" alt="">
-                                            </td>
-
-                                            <td data-field="name">Diamond Earrings</td>
-
-                                            <td data-field="price">$3145.00</td>
-
-                                            <td class="order-warning" data-field="status">
-                                                <span>Padding</span>
-                                            </td>
-
-                                            <td data-field="name">Electronics</td>
-
-                                            <td>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-edit" title="Edit"></i>
-                                                </a>
-
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-trash" title="Delete"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <img src="assets/images/dashboard/product/13.jpg" alt="">
-                                            </td>
-
-                                            <td data-field="name">Night lamp</td>
-
-                                            <td data-field="price">$84.00</td>
-
-                                            <td class="order-success" data-field="status">
-                                                <span>Success</span>
-                                            </td>
-
-                                            <td data-field="name">Electronics</td>
-
-                                            <td>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-edit" title="Edit"></i>
-                                                </a>
-
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-trash" title="Delete"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <img src="assets/images/dashboard/product/14.jpg" alt="">
-                                            </td>
-
-                                            <td data-field="name">Men's Shoes</td>
-
-                                            <td data-field="price">$67.00</td>
-
-                                            <td class="order-success" data-field="status">
-                                                <span>Success</span>
-                                            </td>
-
-                                            <td data-field="name">Electronics</td>
-
-                                            <td>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-edit" title="Edit"></i>
-                                                </a>
-
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-trash" title="Delete"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <img src="assets/images/dashboard/product/15.jpg" alt="">
-                                            </td>
-
-                                            <td data-field="name">Ledi's red top</td>
-
-                                            <td data-field="price">$234.00</td>
-
-                                            <td class="order-warning" data-field="status">
-                                                <span>Padding</span>
-                                            </td>
-
-                                            <td data-field="name">Electronics</td>
-
-                                            <td>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-edit" title="Edit"></i>
-                                                </a>
-
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-trash" title="Delete"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <img src="assets/images/dashboard/product/16.jpg" alt="">
-                                            </td>
-
-                                            <td data-field="name">latest ledis shoes</td>
-
-                                            <td data-field="price">$357.00</td>
-
-                                            <td class="order-success" data-field="status">
-                                                <span>Success</span>
-                                            </td>
-
-                                            <td data-field="name">Electronics</td>
-
-                                            <td>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-edit" title="Edit"></i>
-                                                </a>
-
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-trash" title="Delete"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <img src="assets/images/dashboard/product/17.jpg" alt="">
-                                            </td>
-
-                                            <td data-field="name">Woman one pis</td>
-
-                                            <td data-field="price">$682.00</td>
-
-                                            <td class="order-success" data-field="status">
-                                                <span>Success</span>
-                                            </td>
-
-                                            <td data-field="name">Electronics</td>
-
-                                            <td>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-edit" title="Edit"></i>
-                                                </a>
-
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-trash" title="Delete"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <img src="assets/images/dashboard/product/18.jpg" alt="">
-                                            </td>
-
-                                            <td data-field="name">Mouse</td>
-
-                                            <td data-field="price">$24.00</td>
-
-                                            <td class="order-cancle" data-field="status">
-                                                <span>Cancle</span>
-                                            </td>
-
-                                            <td data-field="name">Electronics</td>
-
-                                            <td>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-edit" title="Edit"></i>
-                                                </a>
-
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-trash" title="Delete"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <img src="assets/images/dashboard/product/19.jpg" alt="">
-                                            </td>
-
-                                            <td data-field="name">Coffee maker</td>
-
-                                            <td data-field="price">$9721.00</td>
-
-                                            <td class="order-success" data-field="status">
-                                                <span>Success</span>
-                                            </td>
-
-                                            <td data-field="name">Electronics</td>
-
-                                            <td>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-edit" title="Edit"></i>
-                                                </a>
-
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-trash" title="Delete"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <img src="assets/images/dashboard/product/20.jpg" alt="">
-                                            </td>
-
-                                            <td data-field="name">Diamond Nacklace</td>
-
-                                            <td data-field="price">$3579.00</td>
-
-                                            <td class="order-cancle" data-field="status">
-                                                <span>Cancle</span>
-                                            </td>
-
-                                            <td data-field="name">Electronics</td>
-
-                                            <td>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-edit" title="Edit"></i>
-                                                </a>
-
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa fa-trash" title="Delete"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="card-body order-datatable">
+                            <table class="display" id="basic-1">
+                                <thead>
+                                    <tr>
+                                        <th>N°</th>
+                                        <th>Produit</th>
+                                        <th>Libellé</th>
+                                        <th>Catérogie</th>
+                                        <th>Date de création</th>
+                                        <th>Status</th>
+                                        <th>Prix</th>
+                                        <th>Couleur de cheveux</th>
+                                        <th>Densité</th>
+                                        <th>Texture</th>
+                                        <th>Délai d'utilisation</th>
+                                        <th>Bande d'élastique</th>
+                                        <th>Longueur</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse ($products->data as $product)
+                                    <tr>
+                                        <td>{{  $product->id  }}</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="{{asset('uploads/'.$product->a_image)}}" alt=""
+                                                    class="img-fluid img-100 blur-up lazyloaded">
+                                            </div>
+                                        </td>
+
+                                        <td>{{  $product->label  }}</td>
+                                        <td>{{  $product->category  }}</td>
+                                        <td>{{  $product->created_at  }}</td>
+                                        @switch($product->available)
+                                            @case(0)
+                                                <td>
+                                                    <span class="badge badge-primary" style="font-size: 13px">Non disponible</span>
+                                                </td>
+                                                @break
+                                            @case(1)
+                                                <td>
+                                                    <span class="badge badge-success" style="font-size: 13px">Disponible</span>
+                                                </td>
+                                                @break
+                                            @case(2)
+                                                <td>
+                                                    <span class="badge badge-warning" style="font-size: 13px">En attente</span>
+                                                </td>
+                                                @break
+                                            @default
+                                                <td class="order-info" data-field="status">
+                                                    <span>Statut inconnu</span>
+                                                </td>
+                                        @endswitch
+                                        <td >{{  $product->price  }} £</td>
+                                        <td >{{  $product->color  }}</td>
+                                        <td >{{  $product->density  }}</td>
+                                        <td >{{  $product->texture  }}</td>
+                                        <td >{{  $product->usage_delay  }}</td>
+                                        <td >{{  $product->elastic_band  }}</td>
+                                        <td >{{  $product->length  }}</td>
+                                    </tr>
+                                    @empty
+                                        
+                                    @endforelse
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -569,5 +115,11 @@
         </div>
         <!-- Container-fluid Ends-->
     </div>
-    
+
 </div>
+
+@push('scripts')
+    <script src="{{ asset('admin/assets/js/datatables/jquery.dataTables.min.js') }}">
+    </script>
+    <script src="{{ asset('admin/assets/js/datatables/custom-basic.js') }}"></script>
+@endpush

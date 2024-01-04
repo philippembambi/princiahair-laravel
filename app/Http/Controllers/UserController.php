@@ -49,7 +49,7 @@ class UserController extends Controller
 
         try {
             User::create([
-                'fullname' => $request->username,
+                'name' => $request->username,
                 'phone_number' => $request->phonecode,
                 'email' => $request->email,
                 'password' => Hash::make($request->psw),

@@ -1,3 +1,5 @@
+@inject('product', App\Utils\ProductUtil::class)
+
 @extends('layouts.app')
 
 @section('content')
@@ -57,76 +59,31 @@
 <section class="pt-0 ratio3_2">
     <div class="container-fluid p-0">
         <div class="row m-0">
-            <div class="col-lg-3 col-sm-6 p-0 collection_banner">
-                <a href="{{url('product')}}">
-                    <div class="collection-banner p-left">
-                        <div class="img-part">
-                            <img src="./assets/images/_products/3.webp"
-                                class="img-fluid blur-up lazyload bg-img">
-                        </div>
-                        <div class="contain-banner banner-4">
-                            <div>
-                                <h4>save 60%</h4>
-                                <h2 class="text-dark">women</h2>
+            @forelse ($product->getPromoProducts() as $item)
+                <div class="col-lg-3 col-sm-6 p-0 collection_banner">
+                    <a href="{{ url("product/detail/$item->id") }}">
+                        <div class="collection-banner p-left">
+                            <div class="img-part">
+                                <img src="{{ asset("uploads/$item->a_image") }}"
+                                    class="img-fluid blur-up lazyload bg-img">
+                            </div>
+                            <div class="contain-banner banner-4">
+                                <div>
+                                    <h4>&Eacute;conomisez {{  ceil((int) $item->price / 100) * 10  }} %</h4>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-sm-6 p-0 collection_banner">
-                <a href="{{url('product')}}">
-                    <div class="collection-banner p-left">
-                        <div class="img-part">
-                            <img src="./assets/images/_products/11.jpg"
-                                class="img-fluid blur-up lazyload bg-img">
-                        </div>
-                        <div class="contain-banner banner-4">
-                            <div>
-                                <h4>save 30%</h4>
-                                <h2 class="text-dark">men</h2>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-sm-6 p-0 collection_banner">
-                <a href="{{url('product')}}">
-                    <div class="collection-banner p-left">
-                        <div class="img-part">
-                            <img src="./assets/images/_products/9.jpeg"
-                            class="img-fluid blur-up lazyload bg-img">
-                        </div>
-                        <div class="contain-banner banner-4">
-                            <div>
-                                <h4>save 60%</h4>
-                                <h2 class="text-dark">women</h2>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-sm-6 p-0">
-                <a href="{{url('product')}}">
-                    <div class="collection-banner p-left">
-                        <div class="img-part">
-                            <img src="./assets/images/_products/5.webp"
-                            class="img-fluid blur-up lazyload bg-img">
-                        </div>
-                        <div class="contain-banner banner-4">
-                            <div>
-                                <h4>save 60%</h4>
-                                <h2 class="text-dark">women</h2>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>        
+            @empty
+                
+            @endforelse
         </div>
     </div>
 </section>
 <!-- collection banner end -->
 
-    @component('components.top_collection')
+    @component('components.product_topCollection')
     @endcomponent
 
         <!-- service section start -->
@@ -239,9 +196,9 @@
                         <div class="row">
                             <div class="col">
                                 <div class="banner-contain">
-                                    <h2>2023</h2>
-                                    <h3>fashion trends</h3>
-                                    <h4>Offre Spéciale</h4>
+                                    <h2>2024</h2>
+                                    <h3>Offre Spéciale</h3>
+                                    <h4>Tendances pour cette année</h4>
                                 </div>
                             </div>
                         </div>
@@ -251,7 +208,7 @@
             <!-- Parallax banner end -->
     
         <!-- service section end -->
-    @component('components.premium_collection')
+    @component('components.product_bestSelling')
     @endcomponent
 
         <!--modal popup start-->
@@ -292,7 +249,7 @@
     </div>
     <!--modal popup end-->
 
-    @component('components.promo_collection')
+    @component('components.product_newal')
     @endcomponent
     <br>
     @component('components.footer')

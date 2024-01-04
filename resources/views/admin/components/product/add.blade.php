@@ -1,8 +1,10 @@
-{{-- @inject('category', App\Utilities\Category::class) --}}
+@inject('categories', App\Utils\CategoryUtil::class)
 
-@push('scripts.head')
+@push('styles')
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/css/vendors/dropzone.css') }}">
 @endpush
+
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
 <div class="page-body-wrapper">
 
@@ -54,47 +56,51 @@
                                     <div class="form-group">
                                         <label for="validationCustomtitle"
                                             class="col-form-label pt-0"><span>*</span> Prix</label>
-                                        <input class="form-control" class="product_price" id="validationCustomtitle" type="number"
+                                        <input class="form-control" name="product_price" id="validationCustomtitle" type="number"
                                             required="">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label categories-basic"><span>*</span>
-                                            Categorie</label>
+                                            Catégories</label>
                                         <select name="product_category" class="custom-select form-control" required="">
-                                            <option value="">--Select--</option>
-                                            <option value="1">eBooks</option>
+                                            @forelse ($categories->data as $category)
+                                            <option value={{ $category->id }}>{{ $category->name }}</option>                                                
+                                            @empty
+                                            <option value="">--Catégories vides--</option>                                                
+                                            @endforelse
+
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="validationCustom02" class="col-form-label"><span>*</span>
                                             Densité</label>
-                                        <input class="form-control" class="product_density" id="validationCustom02" type="text" required="">
+                                        <input class="form-control" name="product_density" id="validationCustom02" type="text" required="">
                                     </div>
                                     <div class="form-group">
                                         <label for="validationCustom02" class="col-form-label"><span>*</span>
                                             Texture</label>
-                                        <input class="form-control" class="product_texture" id="validationCustom02" type="text" required="">
+                                        <input class="form-control" name="product_texture" id="validationCustom02" type="text" required="">
                                     </div>
                                     <div class="form-group">
                                         <label for="validationCustom02" class="col-form-label"><span>*</span>
-                                            Largeur</label>
-                                        <input class="form-control" class="product_length" id="validationCustom02" type="text" required="">
+                                            Longueur</label>
+                                        <input class="form-control" name="product_length" id="validationCustom02" type="text" required="">
                                     </div>
                                     <div class="form-group">
                                         <label for="validationCustom02" class="col-form-label"><span>*</span>
-                                            Durée d'utilisation</label>
-                                        <input class="form-control" class="product_delay" id="validationCustom02" type="text" required="">
+                                            Délai d'utilisation</label>
+                                        <input class="form-control" name="product_delay" id="validationCustom02" type="text" required="">
                                     </div>
                                     <div class="form-group">
                                         <label for="validationCustom02" class="col-form-label"><span>*</span>
-                                            Couleur</label>
-                                        <input class="form-control" class="product_color" id="validationCustom02" type="text" required="">
+                                            Couleur de cheveux</label>
+                                        <input class="form-control" name="product_color" id="validationCustom02" type="text" required="">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="validationCustom02" class="col-form-label"><span>*</span>
-                                            Bande élastique</label>
-                                        <input class="form-control" class="product_band" id="validationCustom02" type="text" required="">
+                                            Bande d'élastique</label>
+                                        <input class="form-control" name="product_band" id="validationCustom02" type="text" required="">
                                     </div>
 
                                 </div>
@@ -115,9 +121,8 @@
                         </div>
                         <div class="card">
                             <div class="card-body">
-                                <input type="file" name="product_img1" class="d-non" id="product_img1">
-                                <input type="file" name="product_img2" class="d-none" id="product_img2">
-                                <div class="dropzone digits" action="loadFile" id="singleFileUpload">
+                                <div class="dropzone digits" action="uploadFile" method="POST" id="singleFileUpload">
+                                    @csrf
                                         <div class="dz-message needsclick"><i class="fa fa-cloud-upload"></i>
                                             <h4 class="mb-0 f-w-600">Cliquer ici pour ajouter des images</h4>
                                         </div>

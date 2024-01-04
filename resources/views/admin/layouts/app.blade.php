@@ -28,7 +28,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/css/vendors/bootstrap.css') }}">
         <!-- App css-->
         <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/css/style.css') }}">
-        @stack('scripts.head')
+        @stack('styles')
         <title> {{  isset($title) ? $title : 'PrinciaHair - Admin' }}    </title>
 </head>
     <body>
@@ -38,7 +38,7 @@
         @include('flashy::message')
     </body>
 
-    @stack('scripts.foot')
+    @stack('scripts')
     <!-- Bootstrap js-->
     <script src="{{ asset('admin/assets/js/bootstrap.bundle.min.js') }}"></script>
     <!-- feather icon js-->
