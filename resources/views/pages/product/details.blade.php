@@ -107,8 +107,7 @@
                     <div class="col-sm-6">
                         <nav aria-label="breadcrumb" class="theme-breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{url('index')}}">Produit</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">{{ $category  }}</li>
+                                <li class="breadcrumb-item"><a href="{{  route('product.all')  }}">{{ $category  }}</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">{{ $product->label  }}</li>
                             </ol>
                         </nav>
@@ -164,15 +163,16 @@
                                     <li class="bg-light1"></li>
                                     <li class="bg-light2"></li>
                                 </ul>
-                                <div class="product-buttons"><a href="javascript:void(0)" id="cartEffect"
+                                <div class="product-buttons">
+                                    <a href="javascript:void(0)" onclick="addToCart({{  $product->id }})" id="cartEffect"
                                         class="btn btn-solid hover-solid btn-animation"><i class="fa fa-shopping-cart me-1"
                                             aria-hidden="true"></i> Ajouter au panier</a> <a href="#" class="btn btn-solid"><i
                                             class="fa fa-bookmark fz-16 me-2" aria-hidden="true"></i>Acheter</a></div>
                                 <div class="product-count">
                                     <ul>
                                         <li>
-                                            <img src="./assets/images/icon/truck.png" class="img-fluid" alt="image">
-                                            <span class="lang"><b>Livraison à domicile et sur site.</b></span>
+                                            <img src="{{  asset('assets/images/icon/truck.png')  }}" class="img-fluid" alt="image">
+                                            <span class="lang"><b>Livraison à domicile et depuis nos points de vente.</b></span>
                                         </li>
                                     </ul>
                                 </div>
@@ -211,7 +211,7 @@
                                                 <div class="product-tab-discription">
                                                     <div class="part">
                                                         <p>
-                                                            {{ $product->desc }}
+                                                            {!! $product->desc !!}
                                                         </p>
                                                     </div>
                                                     <div class="row">
