@@ -10,9 +10,9 @@
                                         <h2 class="font-fraunces text-white">Meilleures ventes</h2>
                                     </div>
                                     <div class="product-para">
-                                        <p class="text-center text-white">Lorem Ipsum is simply dummy text of the printing and
-                                            typesetting industry.
-                                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                                        <p class="text-center" style="color: #f39910;font-weight:normal;font-size: 1.3rem">
+                                            Nos meilleures ventes de perruques 
+                                        </p>
                                     </div>
                                 </div>
                             </div>

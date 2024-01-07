@@ -51,9 +51,7 @@ class CategoryController extends Controller
 
             Flashy::message("Nouvelle Catégorie ajoutée avec succès !");
             
-            return view('admin.index', [
-                'component' => "admin.components.main"
-            ]);
+            return redirect()->route('admin.category.all');
     }
 
     /**

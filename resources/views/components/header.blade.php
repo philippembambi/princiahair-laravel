@@ -1,3 +1,8 @@
+@inject('cart', App\Utils\CartUtil::class)
+@php
+    $subtotal = 0
+@endphp
+
 <!-- header start -->
 <header>
     <div class="mobile-fix-option"></div>
@@ -45,83 +50,17 @@
                                     </div>
                                     <ul id="sub-menu" class="sm pixelstrap sm-vertical">
                                         <li><a href="#">Acceuil</a></li>
-                                        <li> <a href="#">Promo perruques</a>
-                                            <ul class="mega-menu clothing-menu">
-                                                <li>
-                                                    <div class="row m-0">
-                                                        <div class="col-xl-4">
-                                                            <div class="link-section">
-                                                                <h5>women's fashion</h5>
-                                                                <ul>
-                                                                    <li><a href="#">dresses</a></li>
-                                                                    <li><a href="#">skirts</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xl-4">
-                                                            <a href="#" class="mega-menu-banner"><img
-                                                                    src="{{asset('assets/images/_products/5.webp')}}"
-                                                                    alt="" class="img-fluid blur-up lazyload"></a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li> <a href="#">Laces frontales</a>
+                                        <li> <a href="{{  route('product.all')  }}">Perruques</a></li>
+                                        <li> <a href="#">Laces frontales</a></li>
+                                        <li> <a href="#">Cosmétiques</a></li>
+                                        <li> <a href="#">Catégories</a>
                                             <ul>
                                                 <li><a href="#">shopper bags</a></li>
-                                                <li> <a href="#">purses</a>
-                                                    <ul>
-                                                        <li><a href="#">purses</a></li>
-                                                        <li><a href="#">wallets</a></li>
-                                                        <li><a href="#">leathers</a></li>
-                                                        <li><a href="#">satchels</a></li>
-                                                    </ul>
-                                                </li>
                                             </ul>
                                         </li>
-                                        <li> <a href="#">Cosmétiques</a>
+                                        <li> <a href="#">Pages</a>
                                             <ul>
-                                                <li><a href="#">shopper bags</a></li>
-                                                <li> <a href="#">purses</a>
-                                                    <ul>
-                                                        <li><a href="#">purses</a></li>
-                                                        <li><a href="#">wallets</a></li>
-                                                        <li><a href="#">leathers</a></li>
-                                                        <li><a href="#">satchels</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li> <a href="#">bags</a>
-                                            <ul>
-                                                <li><a href="#">shopper bags</a></li>
-                                                <li><a href="#">laptop bags</a></li>
-                                                <li><a href="#">clutches</a></li>
-                                                <li> <a href="#">purses</a>
-                                                    <ul>
-                                                        <li><a href="#">purses</a></li>
-                                                        <li><a href="#">wallets</a></li>
-                                                        <li><a href="#">leathers</a></li>
-                                                        <li><a href="#">satchels</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">house of design</a></li>
-                                        <li> <a href="#">beauty & personal care</a>
-                                            <ul>
-                                                <li><a href="#">makeup</a></li>
-                                                <li><a href="#">skincare</a></li>
-                                                <li><a href="#">premium beaty</a></li>
-                                                <li> <a href="#">more</a>
-                                                    <ul>
-                                                        <li><a href="#">fragrances</a></li>
-                                                        <li><a href="#">luxury beauty</a></li>
-                                                        <li><a href="#">hair care</a></li>
-                                                        <li><a href="#">tools & brushes</a></li>
-                                                    </ul>
-                                                </li>
+                                                <li><a href="#">Aide</a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -152,13 +91,13 @@
                                     </li>
                                     <li><a href="{{url('index')}}">Acceuil</a></li>
                                     <li class="mega" id="hover-cls">
-                                        <a href="#">Promo perruques <div class="lable-nav">new</div></a>
+                                        <a href="{{  route('product.all')  }}">Perruques</a>
                                     </li>
                                     <li>
                                         <a href="#">Laces frontales</a>
                                     </li>
                                     <li>
-                                        <a href="#">Cosmétiques</a>
+                                        <a href="#">Cosmétiques <div class="lable-nav">new</div></a>
                                     </li>
                                 </ul>
                             </nav>
@@ -167,7 +106,7 @@
                             <div class="icon-nav">
                                 <ul>
                                     <li class="onhover-div mobile-search">
-                                        <div><img src="./assets/images/icon/search.png" onclick="openSearch()"
+                                        <div><img src="{{ asset('assets/images/icon/search.png')  }}" onclick="openSearch()"
                                                 class="img-fluid blur-up lazyload" alt=""> <i class="ti-search"
                                                 onclick="openSearch()"></i></div>
                                         <div id="search-overlay" class="search-overlay">
@@ -193,8 +132,8 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="onhover-div mobile-setting">
-                                        <div><img src="./assets/images/icon/setting.png"
+                                    <li id="mobile_headerSettingIcon" class="onhover-div mobile-setting">
+                                        <div><img src="{{ asset('assets/images/icon/setting.png')  }}"
                                                 class="img-fluid blur-up lazyload" alt=""> <i
                                                 class="ti-settings"></i></div>
                                         <div class="show-div setting">
@@ -205,47 +144,56 @@
                                             </ul>
                                         </div>
                                     </li>
+
+                                    <li class="onhover-div mobile-setting" id="mobile_headerUserIcon">
+                                        <div><img src="{{ asset('assets/images/icon/avatar.png')  }}"
+                                                class="img-fluid blur-up lazyload" alt=""> <i
+                                                class="ti-user"></i></div>
+                                        <div class="show-div setting">
+                                            <h6>Mon compte</h6>
+                                            <ul class="list-inline">
+                                                <li><a href="#">Se connecter</a></li>
+                                                <li><a href="#">S'enregistrer</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
                                     <li class="onhover-div mobile-cart">
-                                        <div><img src="./assets/images/icon/cart.png"
+                                        <div><img src="{{  asset('assets/images/icon/cart.png') }}"
                                                 class="img-fluid blur-up lazyload" alt=""> <i
                                                 class="ti-shopping-cart"></i></div>
-                                        <span class="cart_qty_cls">2</span>
+                                        <span class="cart_qty_cls" id="cart_qty_cls">{{ $cart->count }}</span>
                                         <ul class="show-div shopping-cart">
-                                            <li>
-                                                <div class="media">
-                                                    <a href="#"><img alt="" class="me-3"
-                                                            src="{{ asset('assets/images/_products/9.jpeg') }}"></a>
-                                                    <div class="media-body">
-                                                        <a href="#">
-                                                            <h4>Vétinien racine</h4>
-                                                        </a>
-                                                        <h4><span>1 x $ 299.00</span></h4>
+                                            @forelse ($cart->cart as $item)
+                                            @php
+                                                $subtotal = $subtotal + $item->product->price;
+                                                $produtId = $item->product->id;
+                                            @endphp
+                                                <li>
+                                                    <div class="media">
+                                                        <a href="{{ url("product/detail/$produtId") }}"><img alt="" class="me-3"
+                                                                src="{{asset('uploads/'.$item->product->a_image)}}"></a>
+                                                        <div class="media-body">
+                                                            <a href="{{ url("product/detail/$produtId") }}">
+                                                                <h4>{{ $item->product->label }}</h4>
+                                                            </a>
+                                                            <h4><span>{{ $item->product->price }} &euro;</span></h4>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="close-circle"><a href="#"><i class="fa fa-times"
-                                                            aria-hidden="true"></i></a></div>
-                                            </li>
-                                            <li>
-                                                <div class="media">
-                                                    <a href="#"><img alt="" class="me-3"
-                                                            src="{{ asset('assets/images/_products/9.jpeg') }}"></a>
-                                                    <div class="media-body">
-                                                        <a href="#">
-                                                            <h4>Vétinien racine</h4>
-                                                        </a>
-                                                        <h4><span>1 x $ 299.00</span></h4>
-                                                    </div>
-                                                </div>
-                                                <div class="close-circle"><a href="#"><i class="fa fa-times"
-                                                            aria-hidden="true"></i></a></div>
-                                            </li>
+                                                    <div class="close-circle"><a href="#"><i class="fa fa-times"
+                                                                aria-hidden="true"></i></a></div>
+                                                </li>    
+                                            @empty
+                                                
+                                            @endforelse
+                                            
                                             <li>
                                                 <div class="total">
-                                                    <h5>sous total : <span>$299.00</span></h5>
+                                                    <h5>Sous total : <span>{{ $subtotal  }}.00 &euro;</span></h5>
                                                 </div>
                                             </li>
                                             <li>
-                                                <div class="buttons"><a href="#" class="view-cart">Voir le panier</a> <a href="#" class="checkout">Payer</a></div>
+                                                <div class="buttons"><a href="#" class="view-cart">Voir le panier</a> <a href="#" class="checkout btn btn-solid" style="color: white;">Payer</a></div>
                                             </li>
                                         </ul>
                                     </li>

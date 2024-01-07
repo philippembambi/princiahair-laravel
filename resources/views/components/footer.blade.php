@@ -4,17 +4,13 @@
             <div class="container">
                 <div class="row footer-theme partition-f">
                     <div class="col-lg-4 col-md-6 sub-title">
-                        <div class="footer-title footer-mobile-title">
-                            <h4>about</h4>
+                        <div class="footer-title footer-mobile-title" id="footer-mobile-title">
+                            <h4>A propos</h4>
                         </div>
                         <div class="footer-contant">
-                            <div class="footer-logo"><img style="height: 200px" src="{{asset('assets/img/logo.png')}}" alt=""></div>
-                            <ul class="contact-list">
-                                <li><i class="fa fa-map-marker text-primary"></i>Multikart Demo Store, Demo store India 345-659
-                                </li>
-                                <li><i class="fa fa-phone text-primary"></i>Call Us: 123-456-7898</li>
-                                <li><i class="fa fa-envelope text-primary"></i>Email Us: <a href="#">Support@Multikart.com</a></li>
-                            </ul>
+                            <div class="footer-logo">
+                                <img class="footer-logo-image" src="{{asset('assets/img/logo.png')}}" alt="">
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6">
@@ -24,10 +20,9 @@
                             </div>
                             <div class="footer-contant">
                                 <ul>
-                                    <li><a href="#">Suivre la commande</a></li>
-                                    <li><a href="#">Marketing d'affiliation</a></li>
-                                    <li><a href="#">Paiement et taxes</a></li>
-                                    <li><a href="#">Tableau des tailles</a></li>
+                                    <li><a href="{{  route('product.all')  }}">Perruque</a></li>
+                                    <li><a href="#">Laces frontales</a></li>
+                                    <li><a href="#">Produits cosmétiques</a></li>
                                     <li><a href="#">Aide</a></li>
                                 </ul>
                             </div>
@@ -36,15 +31,14 @@
                     <div class="col-lg-2 col-md-6">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>information</h4>
+                                <h4>Contactez-nous</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul>
-                                    <li><a href="#">shipping & return</a></li>
-                                    <li><a href="#">secure shopping</a></li>
-                                    <li><a href="#">galerie</a></li>
-                                    <li><a href="#">affiliates</a></li>
-                                    <li><a href="#">contacts</a></li>
+                                    <li><a href="#"><i class="fa fa-map-marker text-primary"></i>&nbsp;&nbsp; 23 Rue Nollet Paris France</a></li>
+                                    <li><a href="#"><i class="fa fa-phone text-primary"></i>&nbsp;&nbsp; +33 6 59 59 87 50</a></li>
+                                    <li><a href="#"><i class="fa fa-phone text-primary"></i>&nbsp;&nbsp; +33 6 59 59 87 50</a></li>
+                                    <li><a href="#"><i class="fa fa-envelope text-primary"></i>&nbsp;&nbsp; info@princiahair.fr</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -55,16 +49,15 @@
                                 <h4>Nous contacter</h4>
                             </div>
                             <div class="footer-contant">
-                                <p class="mb-cls-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt
-                                    ut labore</p>
+                                <p class="mb-cls-content">
+                                    Vous pouvez soucrire à notre boîte à lettre pour recevoir au max des actualités sur les nouveaux produits
+                                </p>
                                 <form class="form-inline">
                                     <div class="form-group me-sm-3 mb-2">
-                                        <label for="inputPassword2" class="sr-only">Password</label>
-                                        <input type="password" class="form-control" id="inputPassword2"
-                                            placeholder="Enter Your Email">
+                                        <input type="text" class="form-control" id="inputPassword2"
+                                            placeholder="Entrer votre E-mail">
                                     </div>
-                                    <button type="submit" class="btn btn-solid mb-2">subscribe</button>
+                                    <button type="submit" class="btn btn-solid mb-2">Souscrire</button>
                                 </form>
                                 <div class="footer-social">
                                     <ul>
@@ -86,7 +79,7 @@
                 <div class="row">
                     <div class="col-xl-6 col-md-6 col-sm-12">
                         <div class="footer-end">
-                            <p><i class="fa fa-copyright" aria-hidden="true"></i> 2023 PrinciaHair</p>
+                            <p><i class="fa fa-copyright" aria-hidden="true"></i>Tout droit reservé, 2024 PrinciaHair</p>
                         </div>
                     </div>
                     <div class="col-xl-6 col-md-6 col-sm-12">

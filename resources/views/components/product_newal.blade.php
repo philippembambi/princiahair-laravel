@@ -3,17 +3,7 @@
    <!-- Paragraph-->
     <div class="title1 section-t-space">
         <h4>Offre spéciale</h4>
-        <h2 class="title-inner1">Nouveaux arrivages</h2>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 offset-lg-3">
-                <div class="product-para">
-                    <p class="text-center">Looking for the latest trends in clothing, shoes and accessories? Welcome to
-                        our 'Latest Drops' edit, bringing you all the latest styles from all your fave brands.</p>
-                </div>
-            </div>
-        </div>
+        <h2 class="title-inner1" id="first_title">Nouveaux arrivages</h2>
     </div>
     <!-- Paragraph end -->
 
@@ -35,14 +25,11 @@
                                                 class="img-fluid blur-up lazyload bg-img" alt=""></a>
                                     </div>
                                     <div class="cart-info cart-wrap">
-                                        <button data-bs-toggle="modal" data-bs-target="#addtocart" title="Add to cart">
-                                            <i class="ti-shopping-cart"></i>
+                                        <button data-bs-toggle="modal" onclick="addToCart({{ $item->id   }})" data-bs-target="#addtocart" title="Ajouter au panier">
+                                            <i class="ti-shopping-cart text-primary" style="font-size: 23px; font-weight: bolder;"></i>
                                         </button>
-                                        <a href="javascript:void(0)" title="Ajouter au panier">
-                                            <i class="ti-heart" aria-hidden="true"></i>
-                                        </a>
                                         <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view" title="Quick View">
-                                            <i class="ti-search" aria-hidden="true"></i>
+                                            <i class="ti-search text-primary" style="font-size: 23px; font-weight: bolder;" aria-hidden="true"></i>
                                         </a>
                                     </div>
                                 </div>

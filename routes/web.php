@@ -18,10 +18,12 @@ Route::get('logout', [UserController::class, 'logout'])->name("logout");
 
 Route::group(['prefix' => 'product', 'as' => 'product.'], function () {
     Route::get("/detail/{id}", [ProductController::class, 'show'])->name("detail/{id}");
+    Route::get("/all", [ProductController::class, 'index'])->name("all");
 });
 
 Route::group(['prefix' => 'cart', 'as' => 'cart.'], function () {
     Route::get("/add/{id}", [CartController::class, 'store'])->name("add/{id}");
+    Route::get("get", [CartController::class, 'index'])->name("get");
 });
 
 Route::middleware(['auth'])->group(function(){

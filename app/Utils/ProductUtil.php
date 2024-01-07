@@ -29,6 +29,11 @@ class ProductUtil{
         return Product::where("status", "promo")->limit(4)->get();
     }
 
+    public function getPromoProductsDecr() : object
+    {
+        return Product::where("status", "promo")->orderBy('id', 'DESC')->limit(4)->get();
+    }
+
     public function getNewalProducts() : object
     {
         return Product::where("status", "newal")->get();

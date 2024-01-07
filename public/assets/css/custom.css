@@ -20,6 +20,16 @@
 .mobile-logo-header {
     visibility: hidden;
 }
+
+.footer-logo-image {
+    height: 400px;
+    margin-top: -5rem;
+    margin-bottom: -10rem;
+}
+
+.footer-contant ul li a{
+    font-size: 17px;
+}
 @media (min-width: 992px) {
     .princia-navbar {
         visibility: hidden;
@@ -36,8 +46,33 @@
         margin-top: -1.5rem;
     }
 }
+#mobile_headerUserIcon {
+    display: none;
+}
 
 @media (max-width: 776px) {
+    #mobile_headerSettingIcon {
+        display: none;
+    }
+    #mobile_headerUserIcon {
+        display: flex;
+    }
+    .mobile-account {
+        display: none;
+    }
+    .footer-logo-image {
+        height: 200px;
+        margin-top: -2rem;
+        margin-bottom: -3rem;
+        margin-left: 5rem;
+    }
+
+    #first_title {
+        font-size: 20px;
+    }
+    .header-slider2 {
+        display: none;
+    }
     .collection_banner {
         display: none;
     }

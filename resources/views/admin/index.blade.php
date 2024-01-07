@@ -12,7 +12,7 @@
                         @component($component, [
                             "categories" =>  $categories
                             ]
-                            )
+                        )
                         @endcomponent                
                       @else
                         @component('admin.components.main')

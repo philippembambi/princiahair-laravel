@@ -231,6 +231,9 @@
      ==========================*/
     var contentwidth = jQuery(window).width();
     if ((contentwidth) < '767') {
+        setTimeout(() => {
+            document.getElementById('footer-mobile-title').click();
+        }, 1000);
         jQuery('.footer-title h4').append('<span class="according-menu"></span>');
         jQuery('.footer-title').on('click', function () {
             jQuery('.footer-title').removeClass('active');
@@ -1884,7 +1887,7 @@
     /*=====================
      19.Add to cart
      ==========================*/
-    $('.product-box button .ti-shopping-cart').on('click', function () {
+    $('.product-box button').on('click', function () {
         $.notify({
             icon: 'fa fa-check',
             title: 'Success!',

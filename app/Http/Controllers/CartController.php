@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Cart;
+use App\Models\User;
+use App\Models\Product;
 
 class CartController extends Controller
 {
@@ -13,7 +16,20 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        $cartList = null;
+
+        if(!auth()->user())
+        {
+            $cartList = Cart::with(['product', 'user'])->where("user_ipaddress", request()->ip())->get();
+        }
+        else {
+            $cartList = Cart::with(['product', 'user'])->where("user", auth()->user()->id)->get();   
+        }
+        //dd($cartList[1]->product->label);
+        return response()->json([
+            'cart' => $cartList,
+            'count' => count($cartList)
+        ]);
     }
 
     /**
@@ -34,7 +50,33 @@ class CartController extends Controller
      */
     public function store($id)
     {
-        dd($id);
+        $cartList = null;
+        try {
+            if(!auth()->user())
+            {
+                Cart::create([
+                    'user_id' => 1,
+                    'product_id' => $id,
+                    "user_ipaddress" => request()->ip()
+                ]);
+                $cartList = Cart::with(['product'])->where("user_ipaddress", request()->ip())->get();    
+            }
+            else {
+                Cart::create([
+                    'user_id' => auth()->user()->id,
+                    'product_id' => $id
+                ]);
+                $cartList = Cart::with(['product'])->where("user_id", auth()->user()->id)->get();       
+            }
+            return response()->json([
+                'cart' => $cartList,
+                'count' => count($cartList)
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                    "result" => "Error",
+                    "Message" => $e->getMessage()]);
+        }
     }
 
     /**
