@@ -31,6 +31,7 @@ class ComposerStaticInitfe33f98a750b8c5a51b30c78bd3fab21
         'c7a3c339e7e14b60e06a2d7fcce9476b' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        '974ce3986b2f81344d3ce484b96c08e6' => __DIR__ . '/..' . '/mercuryseries/flashy/src/MercurySeries/Flashy/functions.php',
         'c72349b1fe8d0deeedd3a52e8aa814d8' => __DIR__ . '/..' . '/mockery/mockery/library/helpers.php',
         'ce9671a430e4846b44e1c68c7611f9f5' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
@@ -351,8 +352,8 @@ class ComposerStaticInitfe33f98a750b8c5a51b30c78bd3fab21
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -525,10 +526,31 @@ class ComposerStaticInitfe33f98a750b8c5a51b30c78bd3fab21
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'M' => 
+        array (
+            'MercurySeries\\Flashy' => 
+            array (
+                0 => __DIR__ . '/..' . '/mercuryseries/flashy/src',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\CartController' => __DIR__ . '/../..' . '/app/Http/Controllers/CartController.php',
+        'App\\Http\\Controllers\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/CategoryController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/PageController.php',
+        'App\\Http\\Controllers\\PaymentController' => __DIR__ . '/../..' . '/app/Http/Controllers/PaymentController.php',
+        'App\\Http\\Controllers\\ProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductController.php',
+        'App\\Http\\Controllers\\PurchaseController' => __DIR__ . '/../..' . '/app/Http/Controllers/PurchaseController.php',
+        'App\\Http\\Controllers\\StockController' => __DIR__ . '/../..' . '/app/Http/Controllers/StockController.php',
+        'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
+        'App\\Http\\Controllers\\admin\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/admin/CategoryController.php',
+        'App\\Http\\Controllers\\admin\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/admin/PageController.php',
+        'App\\Http\\Controllers\\admin\\ProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/admin/ProductController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -539,6 +561,12 @@ class ComposerStaticInitfe33f98a750b8c5a51b30c78bd3fab21
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Models\\Cart' => __DIR__ . '/../..' . '/app/Models/Cart.php',
+        'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
+        'App\\Models\\Payment' => __DIR__ . '/../..' . '/app/Models/Payment.php',
+        'App\\Models\\Product' => __DIR__ . '/../..' . '/app/Models/Product.php',
+        'App\\Models\\Purchase' => __DIR__ . '/../..' . '/app/Models/Purchase.php',
+        'App\\Models\\Stock' => __DIR__ . '/../..' . '/app/Models/Stock.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -3102,6 +3130,11 @@ class ComposerStaticInitfe33f98a750b8c5a51b30c78bd3fab21
         'League\\MimeTypeDetection\\GeneratedExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/GeneratedExtensionToMimeTypeMap.php',
         'League\\MimeTypeDetection\\MimeTypeDetector' => __DIR__ . '/..' . '/league/mime-type-detection/src/MimeTypeDetector.php',
         'League\\MimeTypeDetection\\OverridingExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/OverridingExtensionToMimeTypeMap.php',
+        'MercurySeries\\Flashy\\Flashy' => __DIR__ . '/..' . '/mercuryseries/flashy/src/MercurySeries/Flashy/Flashy.php',
+        'MercurySeries\\Flashy\\FlashyNotifier' => __DIR__ . '/..' . '/mercuryseries/flashy/src/MercurySeries/Flashy/FlashyNotifier.php',
+        'MercurySeries\\Flashy\\FlashyServiceProvider' => __DIR__ . '/..' . '/mercuryseries/flashy/src/MercurySeries/Flashy/FlashyServiceProvider.php',
+        'MercurySeries\\Flashy\\LaravelSessionStore' => __DIR__ . '/..' . '/mercuryseries/flashy/src/MercurySeries/Flashy/LaravelSessionStore.php',
+        'MercurySeries\\Flashy\\SessionStore' => __DIR__ . '/..' . '/mercuryseries/flashy/src/MercurySeries/Flashy/SessionStore.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegration' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegrationAssertPostConditions' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegrationAssertPostConditions.php',
         'Mockery\\Adapter\\Phpunit\\MockeryTestCase' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryTestCase.php',
@@ -5781,6 +5814,7 @@ class ComposerStaticInitfe33f98a750b8c5a51b30c78bd3fab21
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitfe33f98a750b8c5a51b30c78bd3fab21::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitfe33f98a750b8c5a51b30c78bd3fab21::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitfe33f98a750b8c5a51b30c78bd3fab21::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitfe33f98a750b8c5a51b30c78bd3fab21::$classMap;
 
         }, null, ClassLoader::class);

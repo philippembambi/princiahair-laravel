@@ -51,11 +51,11 @@
     
         <!-- menu js-->
         <script src="{{ asset('assets/js/menu.js') }}"></script>
-        <script src="{{ asset('assets/js/sticky-menu.js') }}"></script>
-    
+        {{-- <script src="{{ asset('assets/js/sticky-menu.js') }}"></script>
+     --}}
         <!-- ajax search js -->
-        <script src="{{ asset('assets/js/typeahead.bundle.min.js') }}"></script>
-        <script src="{{ asset('assets/js/typeahead.jquery.min.js') }}"></script>
+        {{-- <script src="{{ asset('assets/js/typeahead.bundle.min.js') }}"></script>
+        <script src="{{ asset('assets/js/typeahead.jquery.min.js') }}"></script> --}}
         <script src="{{ asset('assets/js/ajax-custom.js') }}"></script>
     
         <!-- lazyload js-->
@@ -68,22 +68,21 @@
         <script src="{{ asset('assets/js/bootstrap-notify.min.js') }}"></script>
 
         <!-- Theme js-->
-        <script src="{{ asset('assets/js/theme-setting.js') }}"></script>
+        {{-- <script src="{{ asset('assets/js/theme-setting.js') }}"></script> --}}
         <script src="{{ asset('assets/js/script.js') }}"></script>
-        <script src="{{ asset('assets/js/color-setting.js') }}"></script>
+        {{-- <script src="{{ asset('assets/js/color-setting.js') }}"></script> --}}
         <script src="{{ asset('assets/js/custom-slick-animated.js') }}"></script>
 
-        <script src="{{ asset('assets/js/fly-cart.js') }}"></script>
-        <script src="{{ asset('assets/js/theme-setting.js') }}"></script>
-        <script src="{{ asset('assets/js/script.js') }}"></script>
+        {{-- <script src="{{ asset('assets/js/fly-cart.js') }}"></script> --}}
+        {{-- <script src="{{ asset('assets/js/script.js') }}"></script> --}}
         <script src="{{ asset('assets/js/bootstrap-notify.min.js') }}"></script>
 
         <script>
-            $(window).on('load', function () {
-                setTimeout(function () {
-                    $('#exampleModal').modal('show');
-                }, 9000);
-            });
+            // $(window).on('load', function () {
+            //     setTimeout(function () {
+            //         $('#exampleModal').modal('show');
+            //     }, 9000);
+            // });
     
             function openSearch() {
                 document.getElementById("search-overlay").style.display = "block";

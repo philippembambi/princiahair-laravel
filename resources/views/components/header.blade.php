@@ -7,18 +7,18 @@
                 <div class="col-lg-6">
                     <div class="header-contact">
                         <ul>
-                            <li style="color: white;">Princiahair illumine votre coiffure</li>
-                            <li style="color: white;"><i class="fa fa-phone" aria-hidden="true"></i>Appelez-nous au : 123 - 456 - 7890</li>
+                            <li style="color: white; font-size: 16px;">Princiahair illumine votre coiffure</li>
+                            <li style="color: white;font-size: 16px;"><i class="fa fa-envelope" aria-hidden="true"></i>Envoyez un mail à <span style="color: #f39910;">info@princiahair.fr</span></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-6 text-end">
                     <ul class="header-dropdown">
-                        <li class="onhover-dropdown mobile-account" style="color: white;"> <i class="fa fa-user text-primary" aria-hidden="true"></i>
+                        <li class="onhover-dropdown mobile-account" style="color: white;font-size: 16px;"> <i class="fa fa-user text-primary" aria-hidden="true"></i>
                             Mon compte
                             <ul class="onhover-show-div">
-                                <li style="color: white;"><a href="login.html">Login</a></li>
-                                <li style="color: white;"><a href="register.html">register</a></li>
+                                <li style="color: white;font-size: 16px;"><a href="login.html">Se connecter</a></li>
+                                <li style="color: white;font-size: 16px;"><a href="register.html">S'enregistrer</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -131,8 +131,10 @@
                         <div class="brand-logo">
                             
                         </div>
-                        <a href="{{url('index')}}"><img src="{{asset('assets/img/logo.png')}}" class="logo-header"
-                            class="img-fluid blur-up lazyload" alt=""></a>
+                        <a href="{{url('index')}}">
+                          <img  src="{{asset('assets/img/logo.png')}}" 
+                                class="logo-header img-fluid blur-up lazyload" 
+                                alt=""></a>
                     </div>
                     <div class="menu-right pull-right">
                         <div>

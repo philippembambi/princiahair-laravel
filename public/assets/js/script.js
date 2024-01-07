@@ -46,7 +46,7 @@
             $('body').css({
                 'overflow': 'auto'
             });
-        }, 500);
+        }, 200);
         $('.loader_skeleton').remove('slow');
         $('body').css({
             'overflow': 'hidden'
@@ -1926,12 +1926,14 @@
     /*=====================
      20.Add to wishlist
      ==========================*/
-    $('.product-box a .ti-heart , .product-box a .fa-heart').on('click', function () {
-
+    $('.product-box a .ti-heart , .product-box a .fa-heart').on('click', function (e) {
+        console.log('====================================');
+        console.log(e.currentTarget.attributes[0]);
+        console.log('====================================');
         $.notify({
             icon: 'fa fa-check',
-            title: 'Success!',
-            message: 'Item Successfully added in wishlist'
+            title: ' !',
+            message: 'Produit ajouté au panier avec succès :'
         }, {
             element: 'body',
             position: null,
@@ -1946,7 +1948,7 @@
             offset: 20,
             spacing: 10,
             z_index: 1031,
-            delay: 5000,
+            delay: 1500,
             animate: {
                 enter: 'animated fadeInDown',
                 exit: 'animated fadeOutUp'

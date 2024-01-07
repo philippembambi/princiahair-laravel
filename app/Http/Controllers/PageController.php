@@ -20,4 +20,8 @@ class PageController extends Controller
     {
         return view('index');
     }
+    public function authUser()
+    {
+        return view('admin.user.auth');
+    }
 }

@@ -9,10 +9,16 @@ class PageController extends Controller
 {
     public function __invoke()
     {
-        return view('admin.index');
+        return view('admin.index', [
+            'component' => "admin.components.main",
+            'categories' => null
+        ]);
     }
     public function index()
     {
-        return view('admin.index');
+        return view('admin.index', [
+            'component' => "admin.components.main",
+            'categories' => null
+        ]);
     }
 }

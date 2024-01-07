@@ -10,11 +10,12 @@
 }
 
 .logo-header {
-    height: 150px;
-    margin-top: -1.5rem;
+    height: 200px;
+    position: absolute;
+    margin-top: -5.5rem;
 }
 .princia-subheader {
-    height: 100px !important;
+    height: 110px !important;
 }
 .mobile-logo-header {
     visibility: hidden;

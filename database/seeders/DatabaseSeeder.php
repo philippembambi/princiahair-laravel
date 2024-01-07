@@ -20,5 +20,30 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        \App\Models\User::create([
+            'is_admin' => 1,
+            'name' => 'Philippe Mbambi',
+            'email' => 'philippe.mbambi@groupmcsit.fr',
+            'password' => bcrypt('1234'),
+            'phone' => "+243826686661",
+        ]);
+
+        \App\Models\User::create([
+            'is_admin' => 1,
+            'name' => 'Prince Matungulu',
+            'email' => 'prince.matugulu@groupmcsit.fr',
+            'password' => bcrypt('1234'),
+            'phone' => "+33659598750",
+        ]);
+
+        \App\Models\Category::create([
+            'name' => "Perruque",
+            'desc' => 'Lorem ispum',
+        ]);
+
+        \App\Models\Category::create([
+            'name' => "Lace frontale",
+            'desc' => 'Lorem ispum',
+        ]);
     }
 }

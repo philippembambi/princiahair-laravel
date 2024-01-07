@@ -1,3 +1,11 @@
+@component('admin.components.sideBar')
+@endcomponent
+
+<!-- Chartist css -->
+@push('scripts.head')
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/css/vendors/chartist.css') }}">
+@endpush
+
 <div class="page-body">
     <!-- Container-fluid starts-->
     <div class="container-fluid">
@@ -13,7 +21,7 @@
                 <div class="col-lg-6">
                     <ol class="breadcrumb pull-right">
                         <li class="breadcrumb-item">
-                            <a href="index.html">
+                            <a href="{{ route("admin.home") }}">
                                 <i data-feather="home"></i>
                             </a>
                         </li>
