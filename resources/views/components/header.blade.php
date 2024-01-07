@@ -17,7 +17,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-6 text-end">
+                <div class="col-lg-6 text-end" id="mobile-account">
                     <ul class="header-dropdown">
                         <li class="onhover-dropdown mobile-account" style="color: white;font-size: 16px;"> <i class="fa fa-user text-primary" aria-hidden="true"></i>
                             Mon compte

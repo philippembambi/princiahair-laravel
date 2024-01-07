@@ -53,11 +53,16 @@
 @media (max-width: 776px) {
     #mobile_headerSettingIcon {
         display: none;
+        visibility: hidden;
     }
     #mobile_headerUserIcon {
         display: flex;
     }
     .mobile-account {
+        display: none;
+    }
+    #mobile-account {
+        visibility: hidden;
         display: none;
     }
     .footer-logo-image {

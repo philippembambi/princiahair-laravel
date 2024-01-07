@@ -233,7 +233,7 @@
     if ((contentwidth) < '767') {
         setTimeout(() => {
             document.getElementById('footer-mobile-title').click();
-        }, 1000);
+        }, 10000);
         jQuery('.footer-title h4').append('<span class="according-menu"></span>');
         jQuery('.footer-title').on('click', function () {
             jQuery('.footer-title').removeClass('active');
